@@ -280,6 +280,8 @@ znamená to, že **inštalácia zlyhala** a databáza **nebola nainštalovaná**
 
 ![2025-05-19 21_28_01-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/2adfee44-3d05-48c9-aac3-a3fc2e24a989)
 
+![2025-05-19 22_19_07-Facebook – Opera](https://github.com/user-attachments/assets/12160e2e-bd3c-4c38-bd5e-1275132553ec)
+
 ---
 
 ### ✅ Ako zistiť, či je Oracle DB XE nainštalovaná
