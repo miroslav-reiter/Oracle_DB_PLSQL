@@ -187,6 +187,11 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
    - Potvrďte licenčné podmienky
    - Zadajte heslo pre používateľa `SYS`, `SYSTEM`
    - Počkajte na dokončenie inštalácie
+  
+![2025-05-19 21_22_35-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/e41a243a-7328-475d-92e3-3e3c1ca85819)
+![2025-05-19 21_23_05-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/c65b3dbd-f217-4df6-be27-f98f4b9abeb7)
+![2025-05-19 21_23_19-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/69a969b2-cc8f-49f1-86cf-386509684646)
+
 
 3. **Overenie inštalácie**
    - Otvorte „Start“ → „Run SQL Command Line“
@@ -254,8 +259,6 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 ## 🧱 Oracle databázové objekty
 
 Prehľad základných databázových objektov v Oracle:
-
----
 
 **1. 📋 Tabuľka (TABLE)** – Ukladá štruktúrované údaje v riadkoch a stĺpcoch.
 
