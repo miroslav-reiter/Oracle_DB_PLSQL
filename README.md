@@ -193,7 +193,7 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 ![2025-05-19 21_22_35-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/e41a243a-7328-475d-92e3-3e3c1ca85819)
 ![2025-05-19 21_23_05-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/c65b3dbd-f217-4df6-be27-f98f4b9abeb7)
 ![2025-05-19 21_23_19-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/69a969b2-cc8f-49f1-86cf-386509684646)
-
+![2025-05-19 22_31_42-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/1836c3bd-6e2e-47fa-a209-9da60b403cc7)
 
 3. **Overenie inštalácie**
    - Otvorte „Start“ → „Run SQL Command Line“
@@ -215,6 +215,8 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
      - Hostname: `localhost`
      - Port: `1521`
      - Service Name: `XEPDB1`
+    
+     ![2025-05-19 22_33_55-Oracle SQL Developer _ Welcome Page](https://github.com/user-attachments/assets/00d0820c-e809-4f16-8e6f-59c2a2b532bd)
 
 **📁 Destination Folder** `C:\app\miros\product\21c\`  
 ➡️ Toto je hlavný cieľový adresár, kam sa nainštaluje celý Oracle produkt. Obsahuje všetky súbory databázy, inštalačné skripty, knižnice a pomocné nástroje.
