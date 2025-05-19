@@ -219,6 +219,8 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
      ![2025-05-19 22_33_55-Oracle SQL Developer _ Welcome Page](https://github.com/user-attachments/assets/00d0820c-e809-4f16-8e6f-59c2a2b532bd)
 
 5. **Postup testovania a pripojenia na lokálnu databázu**
+
+   
 | Pole                    | Hodnota                                          |
 | ----------------------- | ------------------------------------------------ |
 | **Name**                | `lokalne_oracle_xe` *(ľubovoľný názov spojenia)* |
