@@ -267,6 +267,83 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
      ```
 
 ---
+<a name="overenie-instalacie"></a>
+## ❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE
+
+Ak sa počas inštalácie objaví hlásenie:
+
+> **"The wizard was interrupted before Oracle Database 21c Express Edition could be completely installed."**
+
+znamená to, že **inštalácia zlyhala** a databáza **nebola nainštalovaná**.
+
+![2025-05-19 21_28_01-Oracle Database 21c Express Edition](https://github.com/user-attachments/assets/2adfee44-3d05-48c9-aac3-a3fc2e24a989)
+
+---
+
+### ✅ Ako zistiť, či je Oracle DB XE nainštalovaná
+
+**1. Skontrolovať služby vo Windows**
+- Otvorte `services.msc`
+- Skontrolujte, či existujú služby:
+  - `OracleXETNSListener`
+  - `OracleServiceXE`
+- Ak chýbajú, databáza sa nenainštalovala
+
+**2. Skontrolovať priečinok inštalácie**
+- Skontrolujte adresár:
+  ```
+  C:\app\miros\product\21c\dbhomeXE
+  ```
+- Skontrolujte, či existujú súbory ako:
+  - `bin\sqlplus.exe`
+  - `network\admin\listener.ora`
+
+**3. Spustiť SQL Command Line**
+```cmd
+sqlplus /nolog
+```
+- Ak príkaz nefunguje, inštalácia neprebehla alebo nie je v PATH
+
+---
+
+### 🛠 Odstránenie zvyškov po neúspešnej inštalácii
+
+1. Vymaž tieto priečinky (ak existujú):
+   - `C:\app\miros`
+   - `C:\Program Files\Oracle`
+   - `C:\ProgramData\Oracle`
+
+2. Spusti `regedit` a vymaž (opatrne):
+   - `HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE`
+   - `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Oracle...`
+
+3. Reštartuj počítač
+
+---
+
+### 🔁 Spustenie inštalácie znova
+
+- Spusť inštalátor ako **správca**
+- Vyber jednoduchú cestu, napr.:
+  ```
+  C:\oracle\product\21c\
+  ```
+- Uisti sa, že:
+  - nemáš spustený antivírus
+  - máš aspoň 10 GB voľného miesta
+  - systém má nainštalovaný .NET a Visual C++ Redistributable
+
+---
+
+### 🧪 Odporúčaný overovací test po inštalácii
+
+```sql
+CONNECT system
+SELECT 'Oracle funguje!' AS status FROM dual;
+```
+
+Tento príkaz potvrdí úspešnú inštaláciu a funkčnosť SQL*Plus alebo SQL Developer.
+---
 
 <a name="oracle-objekty"></a>
 ## 🧱 Oracle databázové objekty
