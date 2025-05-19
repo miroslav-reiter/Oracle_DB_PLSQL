@@ -4,7 +4,9 @@ Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express 
 ### A1 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
 ### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
 ### A3 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
-### A4 [🧱 Oracle databázové objekty](#oracle-objekty)
+### A4 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
+### A5 [🧱 Oracle databázové objekty](#oracle-objekty)
+
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
