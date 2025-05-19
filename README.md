@@ -209,10 +209,23 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
    - Rozbaľte ZIP súbor a spustite `sqldeveloper.exe`
    - Prihláste sa pomocou:
      - Username: `system`
-     - Password: vaše heslo
+     - Password: `vaše heslo`
      - Hostname: `localhost`
      - Port: `1521`
      - Service Name: `XEPDB1`
+
+**📁 Destination Folder** `C:\app\miros\product\21c\`  
+➡️ Toto je hlavný cieľový adresár, kam sa nainštaluje celý Oracle produkt. Obsahuje všetky súbory databázy, inštalačné skripty, knižnice a pomocné nástroje.
+
+**📁 Oracle Home** `C:\app\miros\product\21c\dbhomeXE\`
+➡️ "Oracle Home" predstavuje koreňový adresár pre túto konkrétnu inštanciu databázy. Obsahuje binárky, konfiguračné súbory, skripty, SQL*Plus, listener, služby databázy atď.
+➡️ Každá inštancia databázy má svoj vlastný Oracle Home.
+
+**📁 Oracle Base** `C:\app\miros\product\21c\`  
+➡️ "Oracle Base" je nadradený adresár pre všetky Oracle produkty. Zvyčajne v ňom bývajú:
+- Logy (napr. diag/)
+- Nastavenia všetkých databáz
+- Spoločné komponenty zdieľané medzi viacerými Oracle Home
 
 ---
 
