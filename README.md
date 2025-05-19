@@ -1,4 +1,4 @@
-# 🏛️ Online kurzy Oracle DB
+# ☁️ Online kurzy Oracle DB
 Materiály k online kurzom Oracle databázy (Oracle Database Express Edition)
 
 ### A1 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
@@ -20,11 +20,19 @@ CREATE TABLE student (
 );
 ```
 
+Tento príkaz vytvorí tabuľku `student` so stĺpcami `id`, `meno` a `vek`.
+
+---
+
 **2. ✏️ INSERT INTO** – Vloženie dát
 
 ```sql
 INSERT INTO student (meno, vek) VALUES ('Anna', 21);
 ```
+
+Tento príkaz vloží nový záznam do tabuľky `student` s menom `Anna` a vekom `21`.
+
+---
 
 **3. 🔍 SELECT** – Výber údajov
 
@@ -32,11 +40,19 @@ INSERT INTO student (meno, vek) VALUES ('Anna', 21);
 SELECT * FROM student;
 ```
 
+Tento príkaz zobrazí všetky údaje z tabuľky `student`.
+
+---
+
 **4. ✒️ UPDATE** – Aktualizácia údajov
 
 ```sql
 UPDATE student SET vek = 22 WHERE meno = 'Anna';
 ```
+
+Tento príkaz aktualizuje vek študentky s menom `Anna` na hodnotu `22`.
+
+---
 
 **5. ❌ DELETE** – Odstránenie údajov
 
@@ -44,17 +60,29 @@ UPDATE student SET vek = 22 WHERE meno = 'Anna';
 DELETE FROM student WHERE meno = 'Anna';
 ```
 
+Tento príkaz odstráni riadok z tabuľky `student`, kde meno je `Anna`.
+
+---
+
 **6. 🧮 Agregačné funkcie** – SUM, AVG, COUNT, MIN, MAX
 
 ```sql
 SELECT COUNT(*) FROM student;
 ```
 
+Tento príkaz spočíta počet riadkov v tabuľke `student`.
+
+---
+
 **7. 📊 GROUP BY a HAVING**
 
 ```sql
 SELECT vek, COUNT(*) FROM student GROUP BY vek HAVING COUNT(*) > 1;
 ```
+
+Tento príkaz zoskupí študentov podľa veku a zobrazí len tie skupiny, ktoré sa vyskytujú viac ako raz.
+
+---
 
 **8. 🔗 JOIN**
 
@@ -63,6 +91,8 @@ SELECT s.meno, k.nazov
 FROM student s 
 JOIN kurz k ON s.kurz_id = k.id;
 ```
+
+Tento príkaz spojí tabuľky `student` a `kurz` na základe `kurz_id` a zobrazí zodpovedajúce údaje.
 
 ---
 
@@ -75,17 +105,29 @@ JOIN kurz k ON s.kurz_id = k.id;
 CREATE USER test_user IDENTIFIED BY silneheslo;
 ```
 
+Tento príkaz vytvorí nového používateľa `test_user` s heslom `silneheslo`.
+
+---
+
 **2. 🔑 GRANT PRIVILEGES**
 
 ```sql
 GRANT CONNECT, RESOURCE TO test_user;
 ```
 
+Tento príkaz pridelí používateľovi `test_user` základné oprávnenia na pripojenie a prácu s databázou.
+
+---
+
 **3. 🚫 REVOKE PRIVILEGES**
 
 ```sql
 REVOKE RESOURCE FROM test_user;
 ```
+
+Tento príkaz odoberie právo `RESOURCE` používateľovi `test_user`.
+
+---
 
 **4. 🧾 CREATE ROLE a GRANT**
 
@@ -95,11 +137,17 @@ GRANT SELECT ON student TO analytik;
 GRANT analytik TO test_user;
 ```
 
+Tento príkaz vytvorí rolu `analytik`, pridelí jej práva na tabuľku `student` a priradí rolu používateľovi `test_user`.
+
+---
+
 **5. 🗑️ DROP USER**
 
 ```sql
 DROP USER test_user CASCADE;
 ```
+
+Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objekty.
 
 ---
 
@@ -109,6 +157,7 @@ DROP USER test_user CASCADE;
 **1. Stiahnutie Oracle XE:**
 
 - [Oracle Database XE Download](https://www.oracle.com/database/technologies/xe-downloads.html)
+- [Free Oracle Database for Everyone](https://www.oracle.com/database/technologies/appdev/xe.html)
 
 **2. Inštalácia SQL Developer:**
 
@@ -118,26 +167,6 @@ DROP USER test_user CASCADE;
 
 - Hostname: `localhost`
 - Port: `1521`
-- SID/Service name: `XEPDB1`
+- SID/Service name: `XEPDB1` alebo `xe`
 - Username: `system` alebo vlastný používateľ
 
----
-
-## 👨‍🏫 Autor
-
-**Miroslav Reiter, PhD.**  
-Lektor a autor kurzov [VITA Academy](https://www.vita.sk)  
-[GitHub](https://github.com/miroslav-reiter) | [LinkedIn](https://www.linkedin.com/in/miroslav-reiter)
-
----
-
-## 🧠 Súvisiace kurzy
-
-- [🐘 PostgreSQL I. Začiatočník](https://github.com/miroslav-reiter/PostgreSQL)
-- [🛢️ MySQL I. Začiatočník](https://github.com/miroslav-reiter/MySQL) *(čoskoro)*
-
----
-
-## 📜 Licencia
-
-MIT
