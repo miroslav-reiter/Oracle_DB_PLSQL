@@ -218,6 +218,30 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
     
      ![2025-05-19 22_33_55-Oracle SQL Developer _ Welcome Page](https://github.com/user-attachments/assets/00d0820c-e809-4f16-8e6f-59c2a2b532bd)
 
+5. **Postup testovania a pripojenia na lokálnu databázu**
+| Pole                    | Hodnota                                          |
+| ----------------------- | ------------------------------------------------ |
+| **Name**                | `lokalne_oracle_xe` *(ľubovoľný názov spojenia)* |
+| **Database Type**       | `Oracle`                                         |
+| **Authentication Type** | `Default`                                        |
+| **Username**            | `system` *(alebo iný vytvorený používateľ)*      |
+| **Password**            | *Heslo zadané počas inštalácie*                  |
+| **Role**                | `default`                                        |
+| **Connection Type**     | `Basic`                                          |
+| **Hostname**            | `localhost`                                      |
+| **Port**                | `1521`                                           |
+| **SID**                 | `xe` *(v prípade Oracle XE, vždy "xe")*          |
+| **Service name**        | *(nevyplňujte – nechajte "SID" zvolené)*         |
+
+1. Vyplňte polia podľa tabuľky vyššie.
+2. Kliknite na Test.
+- Ak je všetko správne, status bude: Success (v zelenom).
+- Ak nie, uvidíte chybové hlásenie v dolnej časti.
+3. Po úspešnom teste kliknite na Connect.
+
+     ![2025-05-19 22_37_49-New _ Select Database Connection](https://github.com/user-attachments/assets/37bc270a-193f-42bf-96c9-13db40bf4970)
+
+
 **📁 Destination Folder** `C:\app\miros\product\21c\`  
 ➡️ Toto je hlavný cieľový adresár, kam sa nainštaluje celý Oracle produkt. Obsahuje všetky súbory databázy, inštalačné skripty, knižnice a pomocné nástroje.
 
