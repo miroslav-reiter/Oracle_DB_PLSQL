@@ -1,5 +1,5 @@
-# ☁️ Online kurzy Oracle DB
-Materiály k online kurzom Oracle databázy (Oracle Database Express Edition)
+# ☁️ Online kurzy Oracle DB a PL/SQL
+Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express Edition)
 
 ### A1 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
 ### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
