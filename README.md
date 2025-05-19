@@ -153,6 +153,12 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 <a name="instalacia-oracle"></a>
 ## 📥 Inštalácia Oracle XE a SQL Developer
 
+### 🧾 Verzie a licencie
+
+- **Oracle Database Express Edition (XE)** – bezplatná verzia Oracle databázy, obmedzená na 2 CPU, 2 GB RAM a 12 GB dát.
+- **Licencia:** Oracle XE je vhodná pre výučbu, vývoj a malé aplikácie. Je dostupná bezplatne bez potreby registrácie.
+- Oracle Database XE je ideálnym nástrojom na výučbu SQL a testovanie aplikácií – zdarma, legálne a ľahko nasaditeľná.
+
 **1. Stiahnutie Oracle XE:**
 
 - [Oracle Database XE Download](https://www.oracle.com/database/technologies/xe-downloads.html)
@@ -164,10 +170,85 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 
 **3. Pripojenie k databáze:**
 
-- Hostname: `localhost`
-- Port: `1521`
-- SID/Service name: `XEPDB1` alebo `xe`
-- Username: `system` alebo vlastný používateľ
+- **Hostname:** `localhost`
+- **Port:** `1521`
+- **SID/Service name:** `XEPDB1` (pluggable databáza) alebo `xe`
+- **Username:** `system` alebo vlastný používateľ
+- **Password:** heslo zvolené pri inštalácii
+
+### 💻 Inštalácia na **Windows**
+
+1. **Stiahnutie inštalátora**
+   - Navštívte [Oracle XE Downloads](https://www.oracle.com/database/technologies/xe-downloads.html)
+   - Stiahnite: *Oracle Database 21c Express Edition for Windows x64*
+
+2. **Inštalácia databázy**
+   - Spustite inštalátor ako administrátor
+   - Potvrďte licenčné podmienky
+   - Zadajte heslo pre používateľa `SYS`, `SYSTEM`
+   - Počkajte na dokončenie inštalácie
+
+3. **Overenie inštalácie**
+   - Otvorte „Start“ → „Run SQL Command Line“
+   - Prihláste sa ako SYSTEM:
+     ```sql
+     CONNECT system
+     ```
+   - Skúste jednoduchý dopyt:
+     ```sql
+     SELECT 'OK' FROM dual;
+     ```
+
+4. **Inštalácia SQL Developer**
+   - Stiahnite z [SQL Developer Download](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
+   - Rozbaľte ZIP súbor a spustite `sqldeveloper.exe`
+   - Prihláste sa pomocou:
+     - Username: `system`
+     - Password: vaše heslo
+     - Hostname: `localhost`
+     - Port: `1521`
+     - Service Name: `XEPDB1`
+
+---
+
+### 🐧 Inštalácia na **Linux / Ubuntu**
+
+1. **Stiahnutie balíka**
+   - Navštívte [Oracle XE Downloads](https://www.oracle.com/database/technologies/xe-downloads.html)
+   - Stiahnite: *Oracle Database 21c Express Edition for Linux x64 (RPM)*
+
+2. **Konverzia RPM na DEB**
+   - Inštalujte potrebné nástroje:
+     ```bash
+     sudo apt update
+     sudo apt install alien libaio1
+     ```
+   - Konvertujte balík:
+     ```bash
+     sudo alien -d oracle-database-xe-21c-1.0-1.x86_64.rpm
+     ```
+
+3. **Inštalácia Oracle XE**
+   - Spustite inštaláciu:
+     ```bash
+     sudo dpkg -i oracle-database-xe-21c_1.0-2_amd64.deb
+     ```
+
+4. **Inicializácia databázy**
+   - Spustite konfiguračný skript:
+     ```bash
+     sudo /etc/init.d/oracle-xe-21c configure
+     ```
+   - Zadajte požadované porty a heslo pre SYS/SYSTEM
+
+5. **Inštalácia SQL Developer (voliteľne)**
+   - Stiahnite a rozbaľte ZIP balík z [oficiálnej stránky](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
+   - Spustite:
+     ```bash
+     ./sqldeveloper/sqldeveloper.sh
+     ```
+
+---
 
 <a name="oracle-objekty"></a>
 ## 🧱 Oracle databázové objekty
