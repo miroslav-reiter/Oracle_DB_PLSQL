@@ -5,8 +5,8 @@ Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express 
 ### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
 ### A3 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
 ### A4 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
-### A5 [🧱 Oracle databázové objekty](#oracle-objekty)
-
+### A5 [ 🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
+### A6 [🧱 Oracle databázové objekty](#oracle-objekty)
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
@@ -218,32 +218,6 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
     
      ![2025-05-19 22_33_55-Oracle SQL Developer _ Welcome Page](https://github.com/user-attachments/assets/00d0820c-e809-4f16-8e6f-59c2a2b532bd)
 
-5. **Postup testovania a pripojenia na lokálnu databázu**
-
-   
-| Pole                    | Hodnota                                          |
-| ----------------------- | ------------------------------------------------ |
-| **Name**                | `lokalne_oracle_xe` *(ľubovoľný názov spojenia)* |
-| **Database Type**       | `Oracle`                                         |
-| **Authentication Type** | `Default`                                        |
-| **Username**            | `system` *(alebo iný vytvorený používateľ)*      |
-| **Password**            | *Heslo zadané počas inštalácie*                  |
-| **Role**                | `default`                                        |
-| **Connection Type**     | `Basic`                                          |
-| **Hostname**            | `localhost`                                      |
-| **Port**                | `1521`                                           |
-| **SID**                 | `xe` *(v prípade Oracle XE, vždy "xe")*          |
-| **Service name**        | *(nevyplňujte – nechajte "SID" zvolené)*         |
-
-1. Vyplňte polia podľa tabuľky vyššie.
-2. Kliknite na Test.
-- Ak je všetko správne, status bude: Success (v zelenom).
-- Ak nie, uvidíte chybové hlásenie v dolnej časti.
-3. Po úspešnom teste kliknite na Connect.
-
-     ![2025-05-19 22_37_49-New _ Select Database Connection](https://github.com/user-attachments/assets/37bc270a-193f-42bf-96c9-13db40bf4970)
-
-
 **📁 Destination Folder** `C:\app\miros\product\21c\`  
 ➡️ Toto je hlavný cieľový adresár, kam sa nainštaluje celý Oracle produkt. Obsahuje všetky súbory databázy, inštalačné skripty, knižnice a pomocné nástroje.
 
@@ -375,6 +349,64 @@ SELECT 'Oracle funguje!' AS status FROM dual;
 ```
 
 Tento príkaz potvrdí úspešnú inštaláciu a funkčnosť SQL*Plus alebo SQL Developer.
+---
+
+<a name="oracle-pripojenie-db"></a>   
+## 🖥️ Postup testovania a pripojenia na lokálnu databázu
+
+Nasledujúca tabuľka obsahuje hodnoty, ktoré je potrebné vyplniť pri vytváraní spojenia v Oracle SQL Developer:
+
+| Pole                    | Hodnota                                          |
+|-------------------------|--------------------------------------------------|
+| **Name**                | `lokalne_oracle_xe` *(ľubovoľný názov spojenia)* |
+| **Database Type**       | `Oracle`                                         |
+| **Authentication Type** | `Default`                                        |
+| **Username**            | `system` *(alebo iný vytvorený používateľ)*      |
+| **Password**            | *Heslo zadané počas inštalácie*                  |
+| **Role**                | `default`                                        |
+| **Connection Type**     | `Basic`                                          |
+| **Hostname**            | `localhost`                                      |
+| **Port**                | `1521`                                           |
+| **SID**                 | `xe` *(v prípade Oracle XE, vždy "xe")*          |
+| **Service name**        | *(nevyplňujte – nechajte "SID" zvolené)*         |
+
+---
+
+### 🧪 Krok za krokom postup pre pripojenie lokálne databázy
+
+1. Otvorte SQL Developer a zvoľte **File > New Connection**.
+2. Vyplňte všetky polia podľa tabuľky vyššie.
+3. Kliknite na tlačidlo **Test**:
+   - ✅ Ak je všetko v poriadku, zobrazí sa zelený stav: `Success`
+   - ❌ Ak nie, zobrazí sa chybové hlásenie (napr. nesprávne heslo alebo SID)
+4. Po úspešnom teste kliknite na **Connect**
+
+![2025-05-19 22_37_49-New _ Select Database Connection](https://github.com/user-attachments/assets/37bc270a-193f-42bf-96c9-13db40bf4970)
+
+---
+
+## 🔌 Alternatíva: Oracle DB cez Visual Studio Code
+
+Ak používate **Visual Studio Code**, môžete nainštalovať rozšírenie Oracle SQL Developer Extension:
+
+🔗 [Oracle SQL Developer Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.sql-developer)
+
+### Postup:
+
+1. Otvorte **Visual Studio Code**
+2. Prejdite na **Extensions (Ctrl+Shift+X)** a vyhľadajte `Oracle SQL Developer`
+3. Kliknite na **Install**
+4. V ľavom bočnom paneli kliknite na **Oracle Explorer**
+5. Vytvorte nové spojenie:
+   - Host: `localhost`
+   - Port: `1521`
+   - Service name: `XEPDB1` *(alebo `xe` podľa inštalácie)*
+   - Username: `system`
+   - Password: *vaše heslo*
+6. Kliknite na **Connect**
+
+Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Code.
+
 ---
 
 <a name="oracle-objekty"></a>
