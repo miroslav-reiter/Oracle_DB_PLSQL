@@ -155,7 +155,7 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 
 ### 🧾 Verzie a licencie
 
-- **Oracle Database Express Edition (XE)** – bezplatná verzia Oracle databázy, obmedzená na 2 CPU, 2 GB RAM a 12 GB dát.
+- **Oracle Database Express Edition (XE)** – bezplatná verzia databázy, obmedzená na 2 CPU, 2 GB RAM a 12 GB dát.
 - **Licencia:** Oracle XE je vhodná pre výučbu, vývoj a malé aplikácie. Je dostupná bezplatne bez potreby registrácie.
 - Oracle Database XE je ideálnym nástrojom na výučbu SQL a testovanie aplikácií – zdarma, legálne a ľahko nasaditeľná.
 
