@@ -389,7 +389,7 @@ Nasledujúca tabuľka obsahuje hodnoty, ktoré je potrebné vyplniť pri vytvár
 
 Ak používate **Visual Studio Code**, môžete nainštalovať rozšírenie Oracle SQL Developer Extension:
 
-🔗 [Oracle SQL Developer Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.sql-developer)
+🔗 [**Oracle SQL Developer Extension for VS Code**](https://marketplace.visualstudio.com/items?itemName=Oracle.sql-developer)
 
 ### Postup:
 
@@ -404,6 +404,8 @@ Ak používate **Visual Studio Code**, môžete nainštalovať rozšírenie Orac
    - Username: `system`
    - Password: *vaše heslo*
 6. Kliknite na **Connect**
+
+![visual-studio](https://github.com/user-attachments/assets/5f62ae1f-e15c-4a4a-817c-d6d3dbf7e964)
 
 Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Code.
 
