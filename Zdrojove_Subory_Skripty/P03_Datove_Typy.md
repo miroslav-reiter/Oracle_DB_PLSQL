@@ -116,3 +116,93 @@ FROM osoby;
 
 ➡️ `DECODE` je Oracle špecifická verzia `CASE` (jednoduchšia forma).
 
+
+
+---
+
+## 📊 Agregačné funkcie
+
+```sql
+SELECT
+    COUNT(*) AS "Počet riadkov",
+    SUM(plat) AS "Súčet platov",
+    AVG(plat) AS "Priemerný plat",
+    MIN(plat) AS "Najnižší plat",
+    MAX(plat) AS "Najvyšší plat"
+FROM zamestnanci;
+```
+
+➡️ Používajú sa na výpočet súhrnných hodnôt z viacerých riadkov.
+
+---
+
+## 🔁 Konverzné funkcie
+
+```sql
+SELECT
+    TO_CHAR(SYSDATE, 'DD.MM.YYYY') AS "Formátovaný dátum",
+    TO_DATE('2025-12-24', 'YYYY-MM-DD') AS "Dátum z textu",
+    TO_NUMBER('12345') AS "Číslo z textu"
+FROM dual;
+```
+
+➡️ Funkcie na prevod medzi dátumom, textom a číslom.
+
+---
+
+## 🧠 Analytické funkcie (ROWNUM, RANK, DENSE_RANK)
+
+```sql
+SELECT meno, plat, 
+       RANK() OVER (ORDER BY plat DESC) AS "Poradie"
+FROM zamestnanci;
+```
+
+➡️ `RANK()` priradí poradie podľa výšky platu, `DENSE_RANK()` bez preskakovania.
+
+```sql
+SELECT * FROM (
+    SELECT * FROM zamestnanci WHERE oddelenie = 'IT'
+) WHERE ROWNUM <= 5;
+```
+
+➡️ `ROWNUM` slúži na obmedzenie počtu výsledkov (alternatíva k `LIMIT`).
+
+---
+
+## 🧪 Špeciálne funkcie
+
+```sql
+SELECT
+    USER AS "Aktuálny používateľ",
+    SYSDATE AS "Dátum systému",
+    SYSTIMESTAMP AS "Presný čas",
+    UID AS "ID používateľa"
+FROM dual;
+```
+
+➡️ Zobrazujú informácie o prostredí a používateľovi.
+
+---
+
+## 📌 CASE verzus DECODE
+
+**CASE:** všeobecná podmienka
+```sql
+SELECT meno,
+       CASE 
+           WHEN pozicia = 'CEO' THEN 'Vedenie'
+           WHEN pozicia = 'IT' THEN 'Technik'
+           ELSE 'Ostatné'
+       END AS oddelenie
+FROM zamestnanci;
+```
+
+**DECODE:** jednoduchá podmienka
+```sql
+SELECT meno,
+       DECODE(pozicia, 'CEO', 'Vedenie', 'IT', 'Technik', 'Ostatné') AS oddelenie
+FROM zamestnanci;
+```
+
+➡️ `CASE` je flexibilnejší, `DECODE` je kratší a rýchlejší pre jednoduché vetvenie.
