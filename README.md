@@ -4,8 +4,7 @@ Materiály k online kurzom Oracle databázy (Oracle Database Express Edition)
 ### A1 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
 ### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
 ### A3 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
-
----
+### A4 [🧱 Oracle databázové objekty](#oracle-objekty)
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
@@ -170,3 +169,121 @@ Tento príkaz natrvalo odstráni používateľa `test_user` a všetky jeho objek
 - SID/Service name: `XEPDB1` alebo `xe`
 - Username: `system` alebo vlastný používateľ
 
+<a name="oracle-objekty"></a>
+## 🧱 Oracle databázové objekty
+
+Prehľad základných databázových objektov v Oracle:
+
+---
+
+**1. 📋 Tabuľka (TABLE)** – Ukladá štruktúrované údaje v riadkoch a stĺpcoch.
+
+```sql
+CREATE TABLE zamestnanci (
+    id NUMBER PRIMARY KEY,
+    meno VARCHAR2(100),
+    pozicia VARCHAR2(50)
+);
+```
+
+---
+
+**2. 👁️‍🗨️ Pohľad (VIEW)** – Virtuálna tabuľka vytvorená z výsledku SELECT dopytu.
+
+```sql
+CREATE VIEW aktivni_zamestnanci AS
+SELECT * FROM zamestnanci WHERE pozicia IS NOT NULL;
+```
+
+---
+
+**3. 🧠 Funkcia (FUNCTION)** – Uložená procedúra, ktorá vracia hodnotu.
+
+```sql
+CREATE OR REPLACE FUNCTION vrat_bonus(p_plat NUMBER) RETURN NUMBER IS
+BEGIN
+    RETURN p_plat * 0.10;
+END;
+```
+
+---
+
+**4. 🔁 Procedúra (PROCEDURE)** – Uložená procedúra, ktorá nemusí vracať hodnotu.
+
+```sql
+CREATE OR REPLACE PROCEDURE zvys_plat(p_id NUMBER, p_bonus NUMBER) IS
+BEGIN
+    UPDATE zamestnanci SET plat = plat + p_bonus WHERE id = p_id;
+END;
+```
+
+---
+
+**5. 📦 Balík (PACKAGE)** – Kolekcia príbuzných procedúr a funkcií.
+
+```sql
+CREATE OR REPLACE PACKAGE mzdy_pkg AS
+  PROCEDURE vypocitaj_odmenu(p_id NUMBER);
+  FUNCTION vrat_priplatok(p_vek NUMBER) RETURN NUMBER;
+END mzdy_pkg;
+```
+
+---
+
+**6. 🛠️ Trigger (TRIGGER)** – Automatická reakcia na udalosť v databáze.
+
+```sql
+CREATE OR REPLACE TRIGGER kontrola_platu
+BEFORE INSERT OR UPDATE ON zamestnanci
+FOR EACH ROW
+BEGIN
+    IF :NEW.plat < 800 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Plat je príliš nízky.');
+    END IF;
+END;
+```
+
+---
+
+**7. 📚 Sekvencia (SEQUENCE)** – Generuje číselné hodnoty, často pre ID.
+
+```sql
+CREATE SEQUENCE seq_zamestnanci START WITH 1 INCREMENT BY 1;
+```
+
+---
+
+**8. 🗂️ Index (INDEX)** – Zrýchľuje vyhľadávanie v tabuľke.
+
+```sql
+CREATE INDEX idx_meno ON zamestnanci(meno);
+```
+
+---
+
+**9. 🔐 Synonymum (SYNONYM)** – Alias na databázový objekt (napr. tabuľku).
+
+```sql
+CREATE SYNONYM zam FOR zamestnanci;
+```
+
+---
+
+**10. 🧱 Typ (TYPE)** – Definuje vlastnú dátovú štruktúru.
+
+```sql
+CREATE OR REPLACE TYPE typ_adresa AS OBJECT (
+  ulica VARCHAR2(50),
+  mesto VARCHAR2(50),
+  psc NUMBER
+);
+```
+
+---
+
+**11. 🗃️ Materializovaný pohľad (MATERIALIZED VIEW)** – Fyzicky uložený výsledok dopytu.
+
+```sql
+CREATE MATERIALIZED VIEW mzda_mv AS
+SELECT id, meno, plat FROM zamestnanci;
+```
