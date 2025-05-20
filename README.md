@@ -5,8 +5,10 @@ Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express 
 ### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
 ### A3 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
 ### A4 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
-### A5 [ 🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
-### A6 [🧱 Oracle databázové objekty](#oracle-objekty)
+### A5 [🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
+### A6 [🗂 Databázy a Schémy](#oracle-databazy-schemy)
+### A7 [🧱 Oracle databázové objekty](#oracle-objekty)
+### A8 [💾 Zálohovanie a Dumpy Databázy](#oracle-zaloha-dump)
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
@@ -470,7 +472,205 @@ Driver: Oracle JDBC driver 23.2.0.0
 
 🧠 DBeaver podporuje export, vizualizácie, ER diagramy a podporuje aj ďalšie databázy ako PostgreSQL, MySQL, SQLite atď.
 
+---
 
+
+<a name="oracle-databazy-schemy"></a>
+## 🗂️ Databázy a Schémy v Oracle
+
+Oracle výrazne **rozlišuje pojem databáza a schéma** – na rozdiel od iných relačných databáz ako PostgreSQL alebo MySQL.
+
+---
+
+### 🧠 Pojmy v Oracle
+
+| Pojem       | Význam v Oracle                                                                |
+|-------------|---------------------------------------------------------------------------------|
+| **Databáza** | Fyzický súbor dát – jedna databáza na jednu inštanciu.                         |
+| **Schéma**   | Logický kontajner objektov – tabuľky, pohľady, procedúry. Každý používateľ = jedna schéma. |
+
+➡️ V Oracle má každá schéma **presne jedného vlastníka = používateľa**  
+➡️ **Neexistuje viacero databáz** v jednej inštancii ako v PostgreSQL
+
+---
+
+### 🧪 Ako zistiť aktuálnu schému a databázu
+
+#### 🔎 Aktuálna schéma (aktuálny používateľ):
+
+```sql
+SELECT SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA') AS aktualna_schema FROM dual;
+```
+
+alebo jednoduchšie:
+
+```sql
+SELECT USER AS prihlaseny_pouzivatel FROM dual;
+```
+
+➡️ Obe metódy vrátia meno aktuálne aktívneho používateľa = schémy.
+
+---
+
+#### 🛢 Aktuálna databáza:
+
+```sql
+SELECT name AS databaza FROM v$database;
+```
+
+➡️ Táto databáza je **fyzická a jediná** – napr. `XE`, `ORCL`.
+
+---
+
+### ✅ Príklad výstupu
+
+```sql
+-- Schéma:
+USER
+-----
+SYSTEM
+
+-- Databáza:
+DATABAZA
+--------
+XE
+```
+
+---
+
+### 🧩 Zhrnutie
+
+- Oracle má **jednu databázu na inštanciu**
+- Databáza obsahuje **viaceré schémy (používateľov)**
+- Prihlásením sa ako `HR`, `SYSTEM`, `SCOTT` atď. používate ich schémy
+- Pre prístup do inej schémy používajte syntax `SCHÉMA.OBJEKT`
+
+---
+
+### 📚 Prehľad systémových tabuliek a pohľadov
+
+| Pohľad / tabuľka      | Popis                                                                |
+|------------------------|----------------------------------------------------------------------|
+| `ALL_USERS`            | Zoznam všetkých používateľov (schém) v databáze                     |
+| `DBA_USERS`            | Detailný zoznam používateľov – vyžaduje oprávnenia DBA              |
+| `USER_TABLES`          | Všetky tabuľky aktuálnej schémy                                     |
+| `ALL_TABLES`           | Tabuľky, ku ktorým má používateľ prístup (aj iných schém)           |
+| `DBA_TABLES`           | Všetky tabuľky v celej databáze – len pre DBA                       |
+| `V$DATABASE`           | Základné informácie o databáze (názov, verzia, ID)                  |
+| `V$INSTANCE`           | Informácie o inštancii Oracle (host, startup time, status, atď.)    |
+| `USER_OBJECTS`         | Všetky objekty (tabuľky, pohľady, funkcie...) v aktuálnej schéme    |
+| `USER_SYNONYMS`        | Zoznam aliasov na objekty v rámci schémy                            |
+| `USER_SOURCE`          | Kódy PL/SQL objektov (procedúry, funkcie)                           |
+
+➡️ Tieto pohľady sú užitočné pre vývojárov, administrátorov aj pri optimalizáciách.
+
+---
+
+
+---
+
+## 🔍 Ďalšie praktické príklady príkazov pre prácu so schémou a databázou
+
+### 📄 Zoznam všetkých schém (používateľov)
+
+```sql
+SELECT username FROM all_users ORDER BY username;
+```
+
+➡️ Vráti všetkých používateľov, ktorí vlastnia schému v databáze.
+
+---
+
+### 📄 Zoznam všetkých tabuliek v aktuálnej schéme
+
+```sql
+SELECT table_name FROM user_tables ORDER BY table_name;
+```
+
+➡️ Vráti len tabuľky, ktoré vlastní prihlásený používateľ.
+
+---
+
+### 📄 Zoznam všetkých tabuliek dostupných používateľovi
+
+```sql
+SELECT owner, table_name FROM all_tables ORDER BY owner, table_name;
+```
+
+➡️ Vráti tabuľky z vlastnej schémy aj cudzie, ak má používateľ oprávnenie ich čítať.
+
+---
+
+### 🧾 Zoznam všetkých objektov v aktuálnej schéme
+
+```sql
+SELECT object_type, object_name FROM user_objects ORDER BY object_type, object_name;
+```
+
+➡️ Zoznam všetkých objektov – tabuľky, pohľady, procedúry, funkcie atď.
+
+---
+
+### 🧑‍💼 Zobrazenie aktuálne prihláseného používateľa a databázy
+
+```sql
+SELECT USER AS "Používateľ", SYS_CONTEXT('USERENV', 'DB_NAME') AS "Databáza" FROM dual;
+```
+
+➡️ Zobrazí meno používateľa a databázy v jednej tabuľke.
+
+---
+
+### 🧠 Zoznam uložených funkcií v schéme
+
+```sql
+SELECT object_name FROM user_objects WHERE object_type = 'FUNCTION';
+```
+
+➡️ Vráti len funkcie definované používateľom v jeho schéme.
+
+---
+
+### 📊 Počet objektov podľa typu
+
+```sql
+SELECT object_type, COUNT(*) AS pocet
+FROM user_objects
+GROUP BY object_type
+ORDER BY pocet DESC;
+```
+
+➡️ Vráti počet tabuliek, pohľadov, procedúr, atď. v aktuálnej schéme.
+
+---
+
+### 🧾 Zoznam všetkých indexov
+
+```sql
+SELECT index_name, table_name FROM user_indexes ORDER BY table_name;
+```
+
+➡️ Zobrazí všetky indexy, ktoré vlastní používateľ.
+
+---
+
+### 🔐 Zoznam udelených práv pre aktuálneho používateľa
+
+```sql
+SELECT * FROM user_tab_privs_made;
+```
+
+➡️ Zobrazí, aké práva boli udelené z aktuálnej schémy iným používateľom.
+
+---
+
+### 🗝️ Zoznam synonym v aktuálnej schéme
+
+```sql
+SELECT synonym_name, table_owner, table_name FROM user_synonyms;
+```
+
+➡️ Zobrazí aliasy na objekty v iných schémach.
 
 ---
 
@@ -590,3 +790,109 @@ CREATE OR REPLACE TYPE typ_adresa AS OBJECT (
 CREATE MATERIALIZED VIEW mzda_mv AS
 SELECT id, meno, plat FROM zamestnanci;
 ```
+
+<a name="oracle-zaloha-dump"></a>
+## 💾 Zálohovanie a Dumpy Databázy
+Pre export databázy v Oracle existujú viaceré formáty, ktoré závisia od použitého nástroja:
+
+---
+
+### 📦 1. Exp/Imp (klasická utilita)
+
+- **Typ:** starší nástroj (stále podporovaný)
+- **Prípona dump súboru:** `.dmp`
+- **Príklad súboru:** `backup_full.dmp`
+- **Súvisiace súbory:**
+  - `.log` – log exportu/importu
+  - `.dmp` – samotný dump
+
+---
+
+### 🛠 2. Data Pump Export/Import (expdp / impdp)
+
+- **Typ:** moderný a odporúčaný (od Oracle 10g+)
+- **Prípona dump súboru:** `.dmp`
+- **Príklad súboru:** `expdp_schemas_2024.dmp`
+- **Viacero súborov:** `dump1.dmp`, `dump2.dmp`, ...
+
+---
+
+### 📄 3. SQL skripty (alternatíva)
+
+- **Prípona:** `.sql`
+- **Obsah:** `CREATE TABLE`, `INSERT INTO`, atď.
+- **Vhodné:** na migráciu bez binárneho dumpu
+
+---
+
+### ✅ Zhrnutie
+
+| Nástroj         | Prípona súboru | Formát   |
+|-----------------|----------------|----------|
+| `exp/imp`       | `.dmp`         | Binárny  |
+| `expdp/impdp`   | `.dmp`         | Binárny  |
+| SQL skripty     | `.sql`         | Textový  |
+
+---
+
+## 🧰 Požiadavky pred exportom cez SQL Developer
+
+- Prihlásiť sa ako `SYS` alebo používateľ s oprávnením `DATAPUMP_EXP_FULL_DATABASE`
+- Vytvoriť **DIRECTORY objekt** v databáze
+- Uistiť sa, že SQL Developer beží na tom istom PC ako DB server (pre lokálne uloženie)
+
+---
+
+## 🪛 Krok 1: Vytvorenie DIRECTORY objektu
+
+```sql
+CREATE OR REPLACE DIRECTORY dump_dir AS 'C:\oracle\export';
+GRANT READ, WRITE ON DIRECTORY dump_dir TO system;
+```
+
+➡️ Zmeňte cestu podľa potreby – adresár musí existovať na disku!
+
+---
+
+## 🧱 Krok 2: Export cez SQL Developer (graficky)
+
+1. Otvorte SQL Developer  
+2. Kliknite na: **Tools > Database Export**
+3. Vyplňte:
+   - **Connection:** napr. `system@xe`
+   - **Export type:** `Data Pump`
+   - **Export DDL and Data:** zapnuté
+   - **Directory:** vyberte `DUMP_DIR`
+   - **Schemas to export:** napr. `SYSTEM`
+   - **File name:** `backup2025.dmp`
+   - **Log file:** `backup2025.log`
+4. Kliknite na **Next**, potom na **Finish**
+
+---
+
+## 💾 Krok 3: Stiahnutie dump súboru
+
+- Dump sa uloží na server (napr. `C:\oracle\export\backup2025.dmp`)
+- Pri lokálnej inštalácii ho nájdete priamo na disku
+- Pri vzdialenej inštancii použite napr. SCP/FTP pre stiahnutie
+
+---
+
+## 🧪 Overenie stavu exportu
+
+```sql
+SELECT * FROM dba_datapump_jobs;
+```
+
+➡️ Zobrazí aktívne a minulé exporty/importy.
+
+---
+
+## 📝 Alternatíva: Export ako `.sql`
+
+- V SQL Developer:
+  - **Pravým klikom na schému > Export > Format: SQL file**
+- Vytvorí `.sql` skript s `CREATE TABLE`, `INSERT INTO`, atď.
+
+---
+
