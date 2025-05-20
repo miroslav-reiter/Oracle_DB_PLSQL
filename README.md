@@ -1,16 +1,16 @@
 # ☁️ Online kurzy Oracle DB a PL/SQL
 Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express Edition)
 
-01 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
-02 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
-03 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
-04 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
-05 [🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
-06 [🗂 Databázy a Schémy](#oracle-databazy-schemy)
-07 [🧱 Oracle databázové objekty](#oracle-objekty)
-08 [💾 Zálohovanie a Dumpy Databázy](#oracle-zaloha-dump)
-09 [🧪 Testovacie databázy a Playgroundy](#oracle-test-db-playgroundy)
-10 [📚 Zdroje a Knihy k Oracle databázam](#oracle-zdroje-knihy)
+01. [**🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami**](#zoznam-zakladnych-oracle-prikazov)
+02. [**🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva**](#zoznam-dba-prikazov-pouzivatelia)  
+03. [**📥 Inštalácia Oracle DB XE a SQL Developer**](#instalacia-oracle)  
+04. [**❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE**](#overenie-instalacie)  
+05. [**🖥️ Postup testovania a pripojenia na lokálnu databázu**](#oracle-pripojenie-db)  
+06. [**🗂 Databázy a Schémy**](#oracle-databazy-schemy)  
+07. [**🧱 Oracle databázové objekty**](#oracle-objekty)  
+08. [**💾 Zálohovanie a Dumpy Databázy**](#oracle-zaloha-dump)  
+09. [**🧪 Testovacie databázy a Playgroundy**](#oracle-test-db-playgroundy)  
+10. [**📚 Zdroje a Knihy k Oracle databázam**](#oracle-zdroje-knihy)  
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
