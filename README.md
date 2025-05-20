@@ -566,9 +566,6 @@ XE
 
 ---
 
-
----
-
 ## 🔍 Ďalšie praktické príklady príkazov pre prácu so schémou a databázou
 
 ### 📄 Zoznam všetkých schém (používateľov)
