@@ -385,7 +385,7 @@ Nasledujúca tabuľka obsahuje hodnoty, ktoré je potrebné vyplniť pri vytvár
 
 ---
 
-## 🔌 Alternatíva: Oracle DB cez Visual Studio Code
+## 🔌 Používanie Oracle DB cez Visual Studio Code
 
 Ak používate **Visual Studio Code**, môžete nainštalovať rozšírenie Oracle SQL Developer Extension:
 
@@ -408,6 +408,65 @@ Ak používate **Visual Studio Code**, môžete nainštalovať rozšírenie Orac
 ![visual-studio](https://github.com/user-attachments/assets/5f62ae1f-e15c-4a4a-817c-d6d3dbf7e964)
 
 Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Code.
+
+## 🦫 Používanie Oracle DB cez Dbeaver
+
+**DBeaver** je univerzálny databázový nástroj, ktorý umožňuje pohodlné pripojenie k Oracle DB.
+
+---
+
+### 🔌 Krok 1: Pridanie Oracle spojenia
+
+1. Kliknite na **New Database Connection** v ľavom navigačnom paneli.
+2. Vyberte databázový typ: **Oracle**
+3. Ak chýbajú ovládače (drivers), kliknite na **Download**.
+4. Po nainštalovaní potrebných súborov sa otvorí dialógové okno na pripojenie.
+
+---
+
+### ⚙️ Krok 2: Nastavenie spojenia
+
+| Pole         | Hodnota                |
+|--------------|------------------------|
+| **Host**     | `localhost`            |
+| **Port**     | `1521`                 |
+| **Database** | `xe` *(alebo `ORCL`)*  |
+| **Authentication** | `Oracle Database Native` |
+| **Username** | `system`               |
+| **Password** | *Vaše heslo*           |
+| **Client**   | napr. `OraDB21Home1`   |
+
+➡️ Zvoľte `SID` a zadajte `xe` alebo použite `Service Name` podľa nastavenia.
+
+---
+
+### 🧪 Krok 3: Otestovanie spojenia
+
+- Kliknite na tlačidlo **Test Connection**.
+- Ak je spojenie úspešné, zobrazí sa okno s potvrdením:
+
+```
+Connected (506 ms)
+Server: Oracle Database 21c Express Edition
+Driver: Oracle JDBC driver 23.2.0.0
+```
+
+✅ Kliknite na **Finish**.
+
+---
+
+### 🧭 Krok 4: Práca s údajmi
+
+- V navigačnom paneli vidíte všetky objekty (tabuľky, schémy, procedúry…).
+- Kliknite na tabuľku → **Data** → zobrazia sa dáta.
+- Môžete vykonávať SQL dopyty v **SQL Editor**i.
+
+---
+
+🧠 DBeaver podporuje export, vizualizácie, ER diagramy a podporuje aj ďalšie databázy ako PostgreSQL, MySQL, SQLite atď.
+![2025-05-20 09_57_00-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/103e1172-6d0e-49a5-bb0b-8906f85c3a2f)
+
+![2025-05-20 09_57_33-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/0ca390b3-4287-42d1-b12a-ee8254705345)
 
 ---
 
