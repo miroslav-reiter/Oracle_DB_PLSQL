@@ -473,6 +473,8 @@ Driver: Oracle JDBC driver 23.2.0.0
 ---
 
 🧠 DBeaver podporuje export, vizualizácie, ER diagramy a podporuje aj ďalšie databázy ako PostgreSQL, MySQL, SQLite atď.
+Nezabudnite si nakonfigurať schému system ak ju nevidím cez filter (pravé tlačidlo myši na schemas)
+![image](https://github.com/user-attachments/assets/4750e736-cdc0-48c0-921e-2a2f9937aca4)
 
 ---
 
