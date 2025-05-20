@@ -1,14 +1,16 @@
 # ☁️ Online kurzy Oracle DB a PL/SQL
 Materiály k online kurzom Oracle databázy a PL/SQL s (Oracle Database Express Edition)
 
-### A1 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
-### A2 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
-### A3 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
-### A4 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
-### A5 [🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
-### A6 [🗂 Databázy a Schémy](#oracle-databazy-schemy)
-### A7 [🧱 Oracle databázové objekty](#oracle-objekty)
-### A8 [💾 Zálohovanie a Dumpy Databázy](#oracle-zaloha-dump)
+### 01 [🎯 Zoznam základných Oracle SQL príkazov s vysvetleniami](#zoznam-zakladnych-oracle-prikazov)
+### 02 [🔐 Zoznam DBA príkazov Oracle - Používatelia a Práva](#zoznam-dba-prikazov-pouzivatelia)
+### 03 [📥 Inštalácia Oracle DB XE a SQL Developer](#instalacia-oracle)
+### 04 [❗ Overenie a riešenie problémov s inštaláciou Oracle DB XE](#overenie-instalacie)
+### 05 [🖥️ Postup testovania a pripojenia na lokálnu databázu](#oracle-pripojenie-db)
+### 06 [🗂 Databázy a Schémy](#oracle-databazy-schemy)
+### 07 [🧱 Oracle databázové objekty](#oracle-objekty)
+### 08 [💾 Zálohovanie a Dumpy Databázy](#oracle-zaloha-dump)
+### 09 [🧪 Testovacie databázy a Playgroundy](#oracle-test-db-playgroundy)
+### 10 [📚 Zdroje a Knihy k Oracle databázam](#oracle-zdroje-knihy)
 
 <a name="zoznam-zakladnych-oracle-prikazov"></a>
 ## 🎯 Zoznam základných Oracle príkazov s vysvetleniami
@@ -890,6 +892,137 @@ SELECT * FROM dba_datapump_jobs;
 - V SQL Developer:
   - **Pravým klikom na schému > Export > Format: SQL file**
 - Vytvorí `.sql` skript s `CREATE TABLE`, `INSERT INTO`, atď.
+
+---
+
+<a name="oracle-test-db-playgroundy"></a>
+## 🧪 Testovacie databázy a Playgroundy
+
+Pre testovanie SQL a PL/SQL bez inštalácie Oracle DB existuje viacero kvalitných online nástrojov a sandboxov.
+
+---
+
+### 🔹 1. Oracle Live SQL
+
+- **Oficiálny nástroj od Oracle** na testovanie SQL a PL/SQL.
+- **Funkcie:** Vytváranie a spúšťanie skriptov, zdieľanie, preddefinované schémy ako `HR` a `SH`.
+- **Výhody:** Nevyžaduje inštaláciu. Prístup k Oracle DB 19c a 23ai.
+- 🌐 [livesql.oracle.com](https://livesql.oracle.com)
+
+---
+
+### 🔹 2. OneCompiler – Oracle SQL
+
+- **Online editor a kompilátor** pre Oracle SQL.
+- **Funkcie:** Podporuje Oracle 23c, vytváranie tabuliek, vkladanie údajov, dotazy.
+- **Výhody:** Jednoduché a rýchle testovanie SQL príkazov.
+- 🌐 [onecompiler.com/oracle](https://onecompiler.com/oracle)
+
+---
+
+### 🔹 3. SQLize.online – Oracle 21c Playground
+
+- **Online prostredie** na spúšťanie Oracle SQL dotazov.
+- **Funkcie:** Podpora Oracle 21c, možnosť zdieľania SQL skriptov.
+- **Výhody:** Rýchle učenie sa a testovanie syntaxe.
+- 🌐 [sqlize.online/sql/oracle21](https://sqlize.online/sql/oracle21)
+
+---
+
+### 🔹 4. Oracle Playground – OracleTutorial.com
+
+- **Interaktívne prostredie** pre precvičovanie Oracle SQL príkazov.
+- **Funkcie:** Nevyžaduje inštaláciu.
+- **Výhody:** Vhodné pre začiatočníkov.
+- 🌐 [oracletutorial.com/playground](https://www.oracletutorial.com/playground)
+
+---
+
+## ☁️ Oracle Cloud Free Tier
+
+- **Bezplatný prístup** k Oracle Cloud Infrastructure (OCI).
+- **Funkcie:**
+  - Always Free: 2 autonómne databázy, 2 výpočtové inštancie, blokové úložisko atď.
+  - $300 kredit na 30 dní pre rozšírené služby.
+- **Výhody:** Plnohodnotné Oracle prostredie dostupné cez SQL Developer, VS Code a ďalšie nástroje.
+- 🌐 [oracle.com/cloud/free](https://www.oracle.com/cloud/free)
+
+---
+
+## 🧰 Ďalšie nástroje
+
+### 🔹 ExtendsClass – Oracle Online Compiler
+
+- **Sandbox** pre testovanie SQL príkazov.
+- **Obmedzenia:** Dáta nie sú perzistentné, nemožno vytvárať schémy.
+- **Výhody:** Okamžité testovanie jednoduchých dotazov.
+- 🌐 [extendsclass.com/oracle-online.html](https://extendsclass.com/oracle-online.html)
+
+---
+
+### 🔹 SQL Fiddle – Oracle PLSQL Compiler
+
+- **Online nástroj** pre testovanie PL/SQL.
+- **Funkcie:** Vytváranie schém, spúšťanie dotazov, zdieľanie.
+- **Výhody:** Vhodné pre precvičovanie PL/SQL a prípravu na pohovory.
+- 🌐 [sqlfiddle.com](https://sqlfiddle.com/oracle-plsql/online-compiler)
+
+---
+
+## ✅ Odporúčania
+
+- **Začiatočníci:** Začnite s [Oracle Live SQL](https://livesql.oracle.com) alebo [OneCompiler](https://onecompiler.com/oracle) pre rýchle učenie.
+- **Pokročilí používatelia:** Vytvorte si účet na [Oracle Cloud Free Tier](https://www.oracle.com/cloud/free) a spustite vlastnú autonómnu databázu.
+
+---
+
+<a name="oracle-zdroje-knihy"></a>
+## 📚 Zdroje a Knihy k Oracle databázam
+
+Tu je výber top kníh a online zdrojov na štúdium Oracle databáz, rozdelený na anglické a české/jazykovo blízke zdroje. Zahŕňajú oficiálne príručky, populárne knihy aj online kurzy a dokumentáciu.
+
+---
+
+### 📘 Top knihy – Anglicky
+
+| Názov | Autor | Popis |
+|-------|-------|-------|
+| **Oracle Database 12c: The Complete Reference** | Bob Bryla, Kevin Loney | Obsiahla kniha pre administráciu a vývoj v Oracle 12c. |
+| **Oracle PL/SQL Programming** | Steven Feuerstein, Bill Pribyl | Kultová kniha pre vývoj v PL/SQL. Detailne pokrýva syntax, optimalizáciu aj najlepšie praktiky. |
+| **Oracle Essentials: Oracle Database 12c** | Rick Greenwald, Robert Stackowiak | Úvod do architektúry a komponentov Oracle databázy. |
+| **Expert Oracle Database Architecture** | Thomas Kyte | Pokročilé princípy fungovania databázy pod kapotou. |
+| **Pro Oracle SQL** | Karen Morton et al. | Detailný pohľad na SQL optimalizáciu a výkonnostné techniky. |
+| **Oracle Performance Survival Guide** | Guy Harrison | Nástroje a stratégie pre ladenie výkonu. |
+| **Oracle Database 19c PL/SQL Programming** | Michael McLaughlin | Praktické príklady a pokrytie verzie 19c. |
+| **Beginning Oracle SQL for Oracle Database 18c** | Ben Brumm | Moderný a prístupný úvod do SQL pre Oracle. |
+| **Oracle SQL Tuning with Oracle SQLTXPLAIN** | Stelios Charalambides | Návod na používanie nástroja SQLTXPLAIN pre SQL tuning. |
+
+---
+
+### 📙 Top knihy a príručky – Česky a Slovensky
+
+| Názov | Autor | Popis |
+|-------|-------|-------|
+| **Oracle – Učebnice administrátora databáze** | Pavel Švec | Komplexný český sprievodca pre správcov Oracle DB. |
+| **Oracle – Programování v PL/SQL** | Petr Tůma | Praktická príručka pre vývojárov v PL/SQL (vhodné pre výuku). |
+| **Oracle – Průvodce administrací databáze** | Milan Lipovský | Kniha s príkladmi inštalácie, správy používateľov, bezpečnosti. |
+| **Oracle – Úvod do práce s databázemi** | David Teplý | Pre začiatočníkov – vytváranie tabuliek, dotazy, základná správa. |
+| **Oracle – Cvičebnice pro začátečníky** | kolektív autorov | Obsahuje úlohy a cvičenia z databáz, SQL a PL/SQL. |
+
+> 🧠 **Poznámka:** české a slovenské tituly sú často staršie (verzie 10g, 11g), ale výborne vysvetľujú základy a princípy.
+
+---
+
+### 🌐 Oficiálna dokumentácia a online zdroje
+
+| Názov | Popis | Odkaz |
+|-------|-------|-------|
+| **Oracle Database Documentation** | Kompletná oficiálna dokumentácia k verziám (vrátane 23c) | [docs.oracle.com](https://docs.oracle.com/en/database/) |
+| **Oracle Live SQL** | Online prostredie + vzorové skripty | [livesql.oracle.com](https://livesql.oracle.com) |
+| **Oracle Learning Library (OLL)** | Bezplatné kurzy a príručky od Oracle | [oracle.com/oll](https://apex.oracle.com/pls/apex/f?p=44785:1:0:::::) |
+| **Oracle Dev Gym** | Cvičenia, výzvy, PL/SQL a SQL trénovanie | [devgym.oracle.com](https://devgym.oracle.com) |
+| **Oracle Blogs** | Technické články od Oracle tímu | [blogs.oracle.com](https://blogs.oracle.com/database/) |
+| **Oracle Academy** | Vzdelávacia platforma pre školy a študentov | [academy.oracle.com](https://academy.oracle.com) |
 
 ---
 
