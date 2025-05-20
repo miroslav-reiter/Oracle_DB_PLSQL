@@ -411,7 +411,7 @@ Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Co
 
 ## 🦫 Používanie Oracle DB cez Dbeaver
 
-**DBeaver** je univerzálny databázový nástroj, ktorý umožňuje pohodlné pripojenie k Oracle DB.
+[**DBeaver**](https://dbeaver.io/download/) je **univerzálny databázový nástroj**, ktorý umožňuje pohodlné pripojenie k Oracle DB.
 
 ---
 
@@ -421,6 +421,8 @@ Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Co
 2. Vyberte databázový typ: **Oracle**
 3. Ak chýbajú ovládače (drivers), kliknite na **Download**.
 4. Po nainštalovaní potrebných súborov sa otvorí dialógové okno na pripojenie.
+
+![2025-05-20 09_57_00-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/103e1172-6d0e-49a5-bb0b-8906f85c3a2f)
 
 ---
 
@@ -449,6 +451,9 @@ Týmto spôsobom môžete používať Oracle databázu priamo z prostredia VS Co
 Connected (506 ms)
 Server: Oracle Database 21c Express Edition
 Driver: Oracle JDBC driver 23.2.0.0
+
+![2025-05-20 09_57_33-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/0ca390b3-4287-42d1-b12a-ee8254705345)
+
 ```
 
 ✅ Kliknite na **Finish**.
@@ -464,9 +469,8 @@ Driver: Oracle JDBC driver 23.2.0.0
 ---
 
 🧠 DBeaver podporuje export, vizualizácie, ER diagramy a podporuje aj ďalšie databázy ako PostgreSQL, MySQL, SQLite atď.
-![2025-05-20 09_57_00-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/103e1172-6d0e-49a5-bb0b-8906f85c3a2f)
 
-![2025-05-20 09_57_33-NVIDIA GeForce Overlay](https://github.com/user-attachments/assets/0ca390b3-4287-42d1-b12a-ee8254705345)
+
 
 ---
 
